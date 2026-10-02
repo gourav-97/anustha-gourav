@@ -18,7 +18,7 @@ export function Hero() {
           </p>
 
           <p className="animate-rise text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground [animation-delay:200ms]">
-            Together with our families
+            {wedding.invitation.opening}
           </p>
 
           <h1 className="animate-rise flex flex-col items-center [animation-delay:280ms]">

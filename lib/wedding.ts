@@ -1,4 +1,4 @@
-export type EventIcon = 'ganesh' | 'haldi' | 'music' | 'mehndi' | 'cheers' | 'baraat' | 'varmala' | 'phere'
+export type EventIcon = 'haldi' | 'ring' | 'sagai' | 'ghadoli' | 'baraat' | 'phere'
 
 export type DressTone = 'gold' | 'rose' | 'green' | 'maroon' | 'ivory'
 
@@ -8,7 +8,7 @@ export type WeddingEvent = {
   time: string
   start: string
   durationHours: number
-  dressCode: string
+  dressCode?: string
   dressTone: DressTone
   icon: EventIcon
 }
@@ -26,161 +26,150 @@ export type Venue = {
   name: string
   subtitle: string
   address: string
+  description: string
   dates: string
   mapsUrl: string
 }
 
-export type Contact = {
-  name: string
-  relation: string
-  phone: string
-}
-
 export const wedding = {
-  groom: 'Arjun',
-  bride: 'Meera',
-  hashtag: '#ArjunWedsMeera',
-  dateLabel: '10 — 12 December 2026',
-  city: 'Udaipur',
+  groom: 'Gourav',
+  bride: 'Anustha',
+  hashtag: '#GouravWedsAnustha',
+  dateLabel: '11 — 12 December 2026',
+  city: 'Jaipur',
   region: 'Rajasthan',
   timezone: 'Asia/Kolkata',
-  countdownTo: '2026-12-12T21:00:00+05:30',
-  countdownLabel: 'Until the Phere',
+  countdownTo: '2026-12-12T00:00:00+05:30',
+  countdownLabel: 'Forever Begins In',
   blessing: '॥ श्री गणेशाय नमः ॥',
   shloka: ['वक्रतुण्ड महाकाय सूर्यकोटि समप्रभ', 'निर्विघ्नं कुरु मे देव सर्वकार्येषु सर्वदा'],
   welcome: 'पधारो सा',
-  invitationEyebrow: 'Aap sabhi amantrit hain',
-  invitationMessage:
-    'Some moments are far too precious to celebrate alone. As {groom} begins a new chapter with {bride}, we ask for your presence, your blessings and your laughter through three days of rasams, colour and music.',
+
+  invitation: {
+    opening: 'With the divine blessings of our families',
+    groomParents: ['Mrs. Madhuri Khatri', 'Mr. Anand Kumar Khatri'],
+    request: 'request the honour of your presence at the wedding of their',
+    groomRelation: 'beloved son',
+    brideRelation: 'beloved daughter of',
+    brideParents: ['Mrs. Nirmala Gautam', 'Mr. Anil Gautam'],
+  },
+
+  couple: {
+    eyebrow: 'The Couple',
+    title: 'Two Hearts. One Forever.',
+    intro: [
+      'Every love story is beautiful, but ours is our favourite.',
+      'Two souls, one journey, and a lifetime of beautiful memories waiting to unfold.',
+    ],
+    bride: {
+      name: 'Anustha',
+      bio: 'Graceful, compassionate and full of warmth, Anustha brings joy wherever she goes. Her smile lights every room, and her heart makes every moment unforgettable.',
+    },
+    groom: {
+      name: 'Gourav',
+      bio: 'Calm, ambitious and thoughtful, Gourav believes the best journeys are the ones shared together. His laughter and kindness define him.',
+    },
+  },
+
   venues: [
     {
-      id: 'home',
-      label: 'Where it all begins',
-      name: 'हमारा घर',
-      subtitle: 'Our family home',
-      address: '14, Fateh Sagar Road, Udaipur, Rajasthan',
-      dates: '10 December 2026',
-      mapsUrl: 'https://maps.google.com/?q=Fateh+Sagar+Road+Udaipur',
-    },
-    {
-      id: 'palace',
-      label: 'Mehndi, Sangeet and Phere',
-      name: 'The Lake Courtyard',
-      subtitle: 'The wedding venue',
-      address: 'Lake Pichola, Udaipur, Rajasthan',
+      id: 'resort',
+      label: 'Our Venue',
+      name: 'Bamboo Saa Sunrise Resort',
+      subtitle: 'A place where every celebration, every blessing and every memory comes together.',
+      address: 'Jaipur, Rajasthan',
+      description: 'Nestled amidst serene landscapes, Bamboo Saa Sunrise Resort sets the perfect stage for our wedding weekend.',
       dates: '11 & 12 December 2026',
-      mapsUrl: 'https://maps.google.com/?q=Lake+Pichola+Udaipur',
+      mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Bamboo+Saa+Sunrise+Resort+Jaipur',
     },
   ] satisfies Venue[],
+
   days: [
     {
-      date: '2026-12-10',
-      title: 'Ganesh Puja, Haldi and more',
-      venueId: 'home',
+      date: '2026-12-11',
+      title: 'Haldi, Ring Ceremony & Sangeet',
+      venueId: 'resort',
       events: [
         {
-          name: 'Ganesh Puja',
-          description: 'Seeking Shri Ganesh’s blessings as the wedding rituals begin.',
-          time: '9:00 AM onwards',
-          start: '09:00',
-          durationHours: 2,
-          dressCode: 'Pooja attire',
-          dressTone: 'gold',
-          icon: 'ganesh',
-        },
-        {
-          name: 'Haldi',
-          description: 'Turmeric, laughter and a little chaos — wear something you don’t mind staining.',
-          time: '11:30 AM onwards',
-          start: '11:30',
+          name: 'Haldi Ceremony',
+          description: 'Wrapped in hues of turmeric, laughter, and blessings, every moment shines with happiness.',
+          time: '1:00 PM',
+          start: '13:00',
           durationHours: 3,
-          dressCode: 'Shades of yellow',
+          dressCode: 'Colourful • Festive Indian',
           dressTone: 'gold',
           icon: 'haldi',
         },
         {
-          name: 'Mahila Sangeet',
-          description: 'Dholak, folk songs and the aunties’ legendary dance-off.',
-          time: '7:00 PM onwards',
+          name: 'Ring Ceremony & Sangeet',
+          description: 'Where promises are exchanged, melodies fill the air, and every heartbeat dances to love.',
+          time: '7:00 PM',
           start: '19:00',
           durationHours: 4,
-          dressCode: 'Festive ethnic',
-          dressTone: 'rose',
-          icon: 'music',
-        },
-      ],
-    },
-    {
-      date: '2026-12-11',
-      title: 'Mehndi and Sangeet Night',
-      venueId: 'palace',
-      events: [
-        {
-          name: 'Mehndi',
-          description: 'Henna, sweets and songs — colour everywhere.',
-          time: '11:00 AM onwards',
-          start: '11:00',
-          durationHours: 4,
-          dressCode: 'Shades of green',
-          dressTone: 'green',
-          icon: 'mehndi',
-        },
-        {
-          name: 'Sangeet & Cocktails',
-          description: 'Both families take the stage for an evening of music and dance.',
-          time: '7:30 PM onwards',
-          start: '19:30',
-          durationHours: 4,
-          dressCode: 'Glam Indo-western',
+          dressCode: 'Elegant • Evening Indian',
           dressTone: 'maroon',
-          icon: 'cheers',
+          icon: 'ring',
         },
       ],
     },
     {
       date: '2026-12-12',
-      title: 'Baraat, Varmala and Phere',
-      venueId: 'palace',
+      title: 'Sagai, Baraat & Phere',
+      venueId: 'resort',
       events: [
         {
-          name: 'Baraat',
-          description: 'The groom arrives with music, dhol and a dancing procession.',
-          time: '5:00 PM',
-          start: '17:00',
+          name: 'Sagai',
+          description: 'The graceful celebration of two families embracing a lifetime of togetherness.',
+          time: '12:00 PM',
+          start: '12:00',
           durationHours: 2,
-          dressCode: 'Safa & sherwani',
+          dressTone: 'rose',
+          icon: 'sagai',
+        },
+        {
+          name: 'Haldi (Groom) & Ghadoli',
+          description: 'A beautiful blend of Haldi and Ghadoli, symbolizing purity, prosperity, and the love of family.',
+          time: '3:00 PM',
+          start: '15:00',
+          durationHours: 2,
+          dressCode: 'Festive • Comfortable Indian',
+          dressTone: 'green',
+          icon: 'ghadoli',
+        },
+        {
+          name: 'Sehra Bandi & Baraat',
+          description: "The groom's royal procession followed by the timeless exchange of garlands — a moment of love, respect, and acceptance.",
+          time: '6:30 PM',
+          start: '18:30',
+          durationHours: 3,
           dressTone: 'rose',
           icon: 'baraat',
         },
         {
-          name: 'Varmala',
-          description: 'The exchange of garlands under the evening sky.',
-          time: '7:00 PM',
-          start: '19:00',
-          durationHours: 1,
-          dressCode: 'Traditional finery',
-          dressTone: 'maroon',
-          icon: 'varmala',
-        },
-        {
           name: 'Phere',
-          description: 'Seven vows around the sacred fire, seven lifetimes together.',
-          time: '9:00 PM onwards',
-          start: '21:00',
+          description: 'With seven sacred steps around the holy fire, two hearts embark on a journey of forever.',
+          time: '12:35 AM',
+          start: '24:35',
           durationHours: 3,
-          dressCode: 'Ivory & pastels',
+          dressCode: 'Royal • Traditional Indian',
           dressTone: 'ivory',
           icon: 'phere',
         },
       ],
     },
   ] satisfies WeddingDay[],
-  rsvpMessage: 'For directions, stay or anything at all — please give us a call.',
-  contacts: [
-    { name: 'Rajesh Sharma', relation: 'Father of the groom', phone: '+91 98765 43210' },
-    { name: 'Sunita Sharma', relation: 'Mother of the groom', phone: '+91 98765 43211' },
-    { name: 'Karan Sharma', relation: 'Brother of the groom', phone: '+91 98765 43212' },
-  ] satisfies Contact[],
+
+  family: {
+    eyebrow: 'With Love From',
+    title: 'The Khatri Family',
+    groups: [
+      { label: 'Paternal Grandparents', names: 'Lt. Mrs. Geeta Devi & Lt. Kesar Das Khatri' },
+      { label: 'Maternal Grandparents', names: 'Lt. Mrs. Varsha & Lt. Mr. Jaswant Rai Chopra' },
+      { label: 'With Love', names: 'Piyush Khatri' },
+    ],
+  },
+
+  rsvpMessage: 'Your presence would make our celebration complete. Kindly let us know if you can join us.',
 }
 
 export function parseDay(date: string) {
@@ -208,7 +197,7 @@ export function googleCalendarUrl(event: WeddingEvent, day: WeddingDay, venue?: 
     text: `${event.name} · ${wedding.groom} & ${wedding.bride}`,
     dates: `${toCalendarStamp(day.date, event.start)}/${toCalendarStamp(day.date, event.start, event.durationHours)}`,
     ctz: wedding.timezone,
-    details: `${event.description}\nDress code: ${event.dressCode}`,
+    details: event.dressCode ? `${event.description}\nWardrobe: ${event.dressCode}` : event.description,
     location: venue ? `${venue.name}, ${venue.address}` : '',
   })
   return `https://calendar.google.com/calendar/render?${params.toString()}`

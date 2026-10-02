@@ -12,20 +12,16 @@ import {
   Music,
   Navigation,
   PartyPopper,
-  Sparkles,
-  Wine,
 } from 'lucide-react'
 import { type DressTone, type EventIcon, googleCalendarUrl, parseDay, wedding } from '@/lib/wedding'
 import { SectionHeading } from './section-heading'
 
 const ICONS: Record<EventIcon, LucideIcon> = {
-  ganesh: Sparkles,
   haldi: Droplet,
-  music: Music,
-  mehndi: Flower2,
-  cheers: Wine,
+  ring: Music,
+  sagai: Heart,
+  ghadoli: Flower2,
   baraat: PartyPopper,
-  varmala: Heart,
   phere: Flame,
 }
 
@@ -58,7 +54,7 @@ export function Schedule() {
   return (
     <section id="schedule" aria-labelledby="schedule-title" className="scroll-mt-4 pt-20 pb-16">
       <div className="px-4 pb-10">
-        <SectionHeading id="schedule-title" eyebrow="Rasams & celebrations" title="The Schedule" />
+        <SectionHeading id="schedule-title" eyebrow="Wedding Weekend" title="Celebration Timeline" />
       </div>
 
       <nav aria-label="Wedding days" className="sticky top-0 z-30 border-y border-border bg-background/90 px-4 py-2 backdrop-blur">
@@ -113,7 +109,7 @@ export function Schedule() {
                     <p className="mt-0.5 flex items-center gap-1.5 text-sm text-muted-foreground">
                       <MapPin className="size-3.5 shrink-0" aria-hidden="true" />
                       <span>
-                        <span className="font-deva">{venue.name}</span> · {venue.subtitle}
+                        {venue.name} · {venue.address}
                       </span>
                     </p>
                   )}
@@ -146,9 +142,12 @@ export function Schedule() {
                         </div>
                         <p className="mt-1 text-pretty text-sm leading-relaxed text-muted-foreground">{event.description}</p>
                         <div className="mt-4 flex flex-wrap items-center gap-2">
-                          <span className={`rounded-full border px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.15em] ${TONES[event.dressTone]}`}>
-                            {event.dressCode}
-                          </span>
+                          {event.dressCode && (
+                            <span className={`rounded-full border px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.15em] ${TONES[event.dressTone]}`}>
+                              <span className="sr-only">Wardrobe: </span>
+                              {event.dressCode}
+                            </span>
+                          )}
                           <a
                             href={googleCalendarUrl(event, day, venue)}
                             target="_blank"
